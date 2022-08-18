@@ -6,7 +6,7 @@
 /*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 14:21:53 by jocardos          #+#    #+#             */
-/*   Updated: 2022/08/17 11:30:55 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/08/18 11:08:22 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 static int	count_words(const char *str, char c)
 {
-	int	numberOfWords;
-	int	isWord;
+	int	number_words;
+	int	is_word;
 
-	numberOfWords = 0;
-	isWord = 0;
+	number_words = 0;
+	is_word = 0;
 	while (*str)
 	{
-		if (*str != c && isWord == 0)
+		if (*str != c && is_word == 0)
 		{
-			isWord = 1;
-			numberOfWords++;
+			is_word = 1;
+			number_words++;
 		}
 		else if (*str == c)
-			isWord = 0;
+			is_word = 0;
 		str++;
 	}
-	return (numberOfWords);
+	return (number_words);
 }
 
 static char	*duplicate_word(const char *str, int init, int end)
