@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+         #
+#    By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 12:16:24 by jocardos          #+#    #+#              #
-#    Updated: 2022/07/26 12:32:52 by jocardos         ###   ########.fr        #
+#    Updated: 2023/03/10 01:00:32 by jocardos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ fclean:	clean
 		@echo -e -n "$(CYAN)Arquivos executáveis$(SET_COLOR)$(GREEN)  -> Excluídos$(SET_COLOR) "
 		@echo -e "🗑️$(SET_COLOR)"
 
-re:	fclean
+re:	fclean all
 	@echo -e -n "\n $(BG_GREEN) => Arquivos excluídos e recompilados <= $(SET_COLOR)\n"
 
 .PHONY:	all clean fclean re

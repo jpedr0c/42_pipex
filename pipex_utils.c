@@ -3,19 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 14:56:53 by jocardos          #+#    #+#             */
-/*   Updated: 2022/08/18 11:01:56 by jocardos         ###   ########.fr       */
+/*   Updated: 2023/03/09 21:11:47 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/include/libft.h"
 #include "pipex.h"
 
-void	error(void)
+void	print_message(char *str, char *color)
 {
-	ft_putstr_fd("Error!!", 2);
+	char *reset_color;
+
+	reset_color = DEFAULT;
+	ft_printf("%s%s%s\n", color, str, reset_color);
+}
+
+void	print_error(char *str)
+{
+	char *color;
+	char *reset_color;
+
+	color = RED;
+	reset_color = DEFAULT;
+	ft_printf("%s%s%s\n", color, str, reset_color);
 	exit(EXIT_FAILURE);
 }
 
@@ -49,17 +62,15 @@ char	*get_path(char *cmd, char **envp)
 
 void	execute(char *argv, char **envp)
 {
-	int		i;
 	char	*path;
 	char	**cmd;
 
-	i = -1;
 	cmd = ft_split(argv, ' ');
 	if (ft_strnstr(cmd[0], "/", 1))
 		path = cmd[0];
 	else
 		path = get_path(cmd[0], envp);
 	execve(path, cmd, envp);
-	error();
+	print_error("Error: Failed to execute command");
 	exit(127);
 }

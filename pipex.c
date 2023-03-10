@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:58:52 by jocardos          #+#    #+#             */
-/*   Updated: 2022/08/18 11:00:49 by jocardos         ###   ########.fr       */
+/*   Updated: 2023/03/09 19:53:28 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	child_process(char **argv, char **envp, int *fd)
 
 	infile = open(argv[1], O_RDONLY, 0777);
 	if (infile == -1)
-	{
-		error();
-		exit(1);
-	}
+		print_error("Error: Failed to open input file");
 	dup2(fd[1], STDOUT_FILENO);
 	dup2(infile, STDIN_FILENO);
 	close(fd[0]);
@@ -35,7 +32,7 @@ void	parent_process(char **argv, char **envp, int *fd)
 
 	outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (outfile == -1)
-		error();
+		print_error("Error: Failed to open or create output file");
 	dup2(fd[0], STDIN_FILENO);
 	dup2(outfile, STDOUT_FILENO);
 	close(fd[1]);
@@ -50,10 +47,10 @@ int	main(int argc, char **argv, char **envp)
 	if (argc == 5)
 	{
 		if (pipe(fd) == -1)
-			error();
+			print_error("Error: Failed to create pipe");
 		pid1 = fork();
 		if (pid1 == -1)
-			error();
+			print_error("Error: Failed to fork process");
 		if (pid1 == 0)
 			child_process(argv, envp, fd);
 		waitpid(pid1, NULL, 0);
@@ -61,8 +58,8 @@ int	main(int argc, char **argv, char **envp)
 	}
 	else
 	{
-		ft_putstr_fd("Erro: Formato errado\n", 2);
-		ft_putstr_fd("Formato correto: ./pipex infile cmd1 cmd2 outfile\n", 1);
+		print_error("Error: Wrong number of arguments\n \
+		Correct format: ./pipex infile cmd1 cmd2 outfile");
 	}
 	return (0);
 }
