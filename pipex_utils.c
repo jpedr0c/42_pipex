@@ -6,20 +6,12 @@
 /*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 14:56:53 by jocardos          #+#    #+#             */
-/*   Updated: 2023/03/09 21:11:47 by jocardos         ###   ########.fr       */
+/*   Updated: 2023/03/11 11:09:12 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/include/libft.h"
 #include "pipex.h"
-
-void	print_message(char *str, char *color)
-{
-	char *reset_color;
-
-	reset_color = DEFAULT;
-	ft_printf("%s%s%s\n", color, str, reset_color);
-}
 
 void	print_error(char *str)
 {
