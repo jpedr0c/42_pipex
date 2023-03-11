@@ -17,9 +17,13 @@
   <a href="#Credits"> 🏆 Credits</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
+<br/>
+
 <a id="About"></a>
 ## 💡 About the project
 > This project involves creating a C program that redirects the output of one process to the input of another process using pipes. The goal of the project is to create a program that is capable of executing two commands (e.g., cat and grep) and redirecting the output of the first command as input to the second command using pipes. The program should be able to read a file and execute the commands specified in it.
+
+<br/>
 
 <a id="HowWork"></a>
 ## 📝 How Pipex works
@@ -30,6 +34,8 @@
 4. The `child_process()` opens the input file and redirects its standard input to this file. Then, the child process redirects its standard output to the pipe created by the parent process and execute the first command using the `execute()`.
 5. The `parent_process()` opens or creates the output file and redirects its standard output to this file. Then, the parent process redirects its standard input to the pipe created by the parent process and executes the second command using the `execute()`.
 6. The parent process closes the file descriptors of the pipes that are not needed.
+
+<br/>
 
 <a id="HowUse"></a>
 ## ⚙️ How to use
@@ -59,9 +65,8 @@ make clean
 make fclean
 ```
 
+<br/>
+
 <a id="Credits"></a>
 ## 🏆 Credits
-<div > 
-| [<img src="https://avatars.githubusercontent.com/u/78514252?v=4.png" width=300><br><sub> João Pedro </sub>](https://www.linkedin.com/in/jpedroc/) | ***Thank you for taking the time to review my project. If you have any questions or would like to connect with me, please feel free to reach out to me on LinkedIn*** | 
-|---|---|
-</div>
+***Thank you for taking the time to review my project. If you have any questions or would like to connect with me, please feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/jpedroc)***
