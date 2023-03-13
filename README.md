@@ -1,3 +1,8 @@
+<p align="center">
+<a href="https://github.com/jpedr0c/42_pipex">
+<img src="./pipex.png" height="120" width="120">
+</a>
+</p>
 <h1 align=center>
   <strong> PIPEX </strong>
 </h1>
